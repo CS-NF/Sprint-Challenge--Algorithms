@@ -100,6 +100,7 @@ class SortingRobot:
 # It can compare items
 
 # *** Plan ***
+# call self.swap_item to initially swap the first item with "None"
 # cretae a while loop to dretirmin while function is true
 # cretae an if statment to see if the robot is able to even move right
 # if the robot CAN move right use swap method to swap the item 
@@ -115,16 +116,18 @@ class SortingRobot:
 # robot then repeat the process 
 
     def sort(self):
+        self.swap_item() # this swaps the first item the robot is on initially to start the bubble sort
         while True:
-            if not self.can_move_right: # if statment checks to see if robot can not move right
-                self.swap_item # if the robot can not move right it will swap the item
+            print("something")
+            if not self.can_move_right(): # if statment checks to see if robot can not move right
+                self.swap_item() # if the robot can not move right it will swap the item
                 break # if the robot can move right
-            while self.can_move_right: # if the robot can move right
-                self.move_right # the robot will begin to move right by one index at a time
-                if self.compare_item == 1: # compare the index in front and if the index the robot is holding onto is greater then the index in front
-                    self.swap_item # swap that index
-            while self.can_move_right and self.compare_item is not None: # checking to see if robot can move left and stoping at "None"
-                self.move_left # robot will iterate through the list moving left until it reaches the end of the list at "None
+            while self.can_move_right(): # if the robot can move right
+                self.move_right() # the robot will begin to move right by one index at a time
+                if self.compare_item() == 1: # compare the index in front and if the index the robot is holding onto is greater then the index in front
+                    self.swap_item() # swap that index
+            while self.can_move_left() and self.compare_item() is not None: # checking to see if robot can move left and stoping at "None"
+                self.move_left() # robot will iterate through the list moving left until it reaches the end of the list at "None
             self.swap_item()  # dropping smallest value and swapping with "None"
             self.move_right() # move right so that everything to the left of the robot is sorted
             self.swap_item() # will drop "None" for the next unsorted value
