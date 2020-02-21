@@ -92,12 +92,57 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+
+# *** Understand ***
+# Use bubble sort
+# The robot can move either left or right
+# It can only hold one item and if it picks up an item it has to swap it for the one it's holding
+# It can compare items
+
+# *** Plan ***
+# call self.swap_item to initially swap the first item with "None"
+# cretae a while loop to dretirmin while function is true
+# cretae an if statment to see if the robot is able to even move right
+# if the robot CAN move right use swap method to swap the item 
+# stop the if statment condition 
+# create a while loop if the robot can move right is True 
+# since we know the robot can now move right tell it to start moving right
+# once the robot get's in front of the item compar the item by [0:1] to see if the item the robot is in front of is greater or smaller then the one it's holding
+# if it is swap the item
+# create a while loop to see if the robot can move left if it can tell the robot to go to the "None" placehold we droped at the begging of the list
+# tell robot to move left
+# Once the robot is at the begging of of list tell it to drop off the number it's holding and pick up none
+# now everything to the left of the robot should be sorted
+# robot then repeat the process 
+
     def sort(self):
-        """
-        Sort the robot's list.
-        """
-        # Fill this out
-        pass
+        self.swap_item() # this swaps the first item the robot is on initially to start the bubble sort
+        while True:
+            if not self.can_move_right(): # if statment checks to see if robot can not move right
+                self.swap_item() # if the robot can not move right it will swap the item
+                break # if the robot can move right
+            while self.can_move_right(): # if the robot can move right
+                self.move_right() # the robot will begin to move right by one index at a time
+                if self.compare_item() == 1: # compare the index in front and if the index the robot is holding onto is greater then the index in front
+                    self.swap_item() # swap that index
+            while self.can_move_left() and self.compare_item() is not None: # checking to see if robot can move left and stoping at "None"
+                self.move_left() # robot will iterate through the list moving left until it reaches the end of the list at "None
+            self.swap_item()  # dropping smallest value and swapping with "None"
+            self.move_right() # move right so that everything to the left of the robot is sorted
+            self.swap_item() # will drop "None" for the next unsorted value
+    
+
+# *** Rules ***
+
+# You may use any pre-defined robot methods.
+# You may NOT modify any pre-defined robot methods.
+# You may use logical operators. (if, and, or, not, etc.)
+# You may use comparison operators. (>, >=, <, <=, ==, is, etc.)
+# You may use iterators. (while, for, break, continue)
+# You may NOT store any variables. (=)
+# You may NOT access any instance variables directly. (self._anything)
+# You may NOT use any Python libraries or class methods. (sorted(), etc.)
+# You may define robot helper methods, as long as they follow all the rules.
 
 
 if __name__ == "__main__":
