@@ -96,7 +96,7 @@ class SortingRobot:
 # *** Understand ***
 # Use bubble sort
 # The robot can move either left or right
-# It can only hold on item and if it picks up an item it has to swap it for the one it's holding
+# It can only hold one item and if it picks up an item it has to swap it for the one it's holding
 # It can compare items
 
 # *** Plan ***
@@ -118,7 +118,6 @@ class SortingRobot:
     def sort(self):
         self.swap_item() # this swaps the first item the robot is on initially to start the bubble sort
         while True:
-            print("something")
             if not self.can_move_right(): # if statment checks to see if robot can not move right
                 self.swap_item() # if the robot can not move right it will swap the item
                 break # if the robot can move right
