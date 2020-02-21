@@ -92,12 +92,54 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+
+
+# *** Understand ***
+# Use bubble sort
+# The robot can move either left or right
+# It can only hold on item and if it picks up an item it has to swap it for the one it's holding
+# It can compare items
+
+# *** Plan ***
+# cretae a while loop to dretirmin while function is true
+# cretae an if statment to see if the robot is able to even move right
+# if the robot CAN move right use swap method to swap the item 
+# stop the if statment condition 
+# create a while loop if the robot can move right is True 
+# since we know the robot can now move right tell it to start moving right
+# once the robot get's in front of the item compar the item by [0:1] to see if the item the robot is in front of is greater or smaller then the one it's holding
+# if it is swap the item
+# create a while loop to see if the robot can move left if it can tell the robot to go to the "None" placehold we droped at the begging of the list
+# tell robot to move left
+# Once the robot is at the begging of of list tell it to drop off the number it's holding and pick up none
+# now everything to the left of the robot should be sorted
+# robot then repeat the process 
+
     def sort(self):
         """
         Sort the robot's list.
         """
         # Fill this out
         pass
+
+
+
+
+# *** Rules ***
+
+# You may use any pre-defined robot methods.
+# You may NOT modify any pre-defined robot methods.
+# You may use logical operators. (if, and, or, not, etc.)
+# You may use comparison operators. (>, >=, <, <=, ==, is, etc.)
+# You may use iterators. (while, for, break, continue)
+# You may NOT store any variables. (=)
+# You may NOT access any instance variables directly. (self._anything)
+# You may NOT use any Python libraries or class methods. (sorted(), etc.)
+# You may define robot helper methods, as long as they follow all the rules.
+
+
+
+
 
 
 if __name__ == "__main__":
