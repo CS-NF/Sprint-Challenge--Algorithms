@@ -93,7 +93,6 @@ class SortingRobot:
         return self._light == "ON"
 
 
-
 # *** Understand ***
 # Use bubble sort
 # The robot can move either left or right
@@ -116,14 +115,20 @@ class SortingRobot:
 # robot then repeat the process 
 
     def sort(self):
-        """
-        Sort the robot's list.
-        """
-        # Fill this out
-        pass
-
-
-
+        while True:
+            if not self.can_move_right: # if statment checks to see if robot can not move right
+                self.swap_item # if the robot can not move right it will swap the item
+                break # if the robot can move right
+            while self.can_move_right: # if the robot can move right
+                self.move_right # the robot will begin to move right by one index at a time
+                if self.compare_item == 1: # compare the index in front and if the index the robot is holding onto is greater then the index in front
+                    self.swap_item # swap that index
+            while self.can_move_right and self.compare_item is not None: # checking to see if robot can move left and stoping at "None"
+                self.move_left # robot will iterate through the list moving left until it reaches the end of the list at "None
+            self.swap_item()  # dropping smallest value and swapping with "None"
+            self.move_right() # move right so that everything to the left of the robot is sorted
+            self.swap_item() # will drop "None" for the next unsorted value
+    
 
 # *** Rules ***
 
@@ -136,10 +141,6 @@ class SortingRobot:
 # You may NOT access any instance variables directly. (self._anything)
 # You may NOT use any Python libraries or class methods. (sorted(), etc.)
 # You may define robot helper methods, as long as they follow all the rules.
-
-
-
-
 
 
 if __name__ == "__main__":
